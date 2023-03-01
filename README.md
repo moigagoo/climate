@@ -72,3 +72,5 @@ Finally, run the app by calling ``parseCommands`` with your commands:
 quit parseCommands(commands)
 ```
 
+See the full example in ``demo`` folder.
+
