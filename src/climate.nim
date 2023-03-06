@@ -11,7 +11,7 @@ type
   Command = tuple[route: string, handler: Handler]
 
 
-proc parseCommands*(commands: openArray[Command]): int =
+proc parseCommands*(commands: openArray[Command], defaultHandler: Handler = nil): int =
   ##[ Parse command-line params, store the arguments and options in context, and invoke the matching handler.
   
   Returns the exit code that should be returned by your app to the caller.
@@ -20,15 +20,20 @@ proc parseCommands*(commands: openArray[Command]): int =
   var
     parser = initOptParser()
     cmdComponents: seq[string]
-    handler: Handler
+    handler = defaultHandler
     context: Context
+    route = ""
 
   block findHandler:
     for (kind, key, val) in getopt(parser):
-      if kind == cmdArgument:
+      case kind
+      of cmdArgument:
         cmdComponents.add(key)
-
-      let route = cmdComponents.join(" ")
+        route = cmdComponents.join(" ")
+      of cmdShortOption, cmdLongOption:
+        context.cmdOptions[key] = val
+      of cmdEnd:
+        break
 
       for command in commands:
         if command.route == route:
