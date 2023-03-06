@@ -1,6 +1,6 @@
 import climate
 
-import commands/flow
+import commands/[root, flow]
 import commands/flow/release
 
 
@@ -12,5 +12,5 @@ const commands = {
 
 
 when isMainModule:
-  quit parseCommands(commands)
+  quit parseCommands(commands, defaultHandler = root.root)
 
