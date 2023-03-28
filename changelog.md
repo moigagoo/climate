@@ -8,6 +8,11 @@
 -   [d]—docs improvement
 
 
+## 1.0.2 (March 28, 2023)
+
+-   [f] Fix invalid Nim version requirement, Nim devel no longer required.
+
+
 ## 1.0.1 (March 6, 2023)
 
 -   [+] Add `defaultHandler` param to `parseCommands` that is called when no match is found.
