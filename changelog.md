@@ -8,6 +8,11 @@
 -   [d]—docs improvement
 
 
+## 1.0.3 (April 3, 2023)
+
+-   [+] Add sugar to work with arguments and options to `climate/sugar`.
+
+
 ## 1.0.2 (March 28, 2023)
 
 -   [f] Fix invalid Nim version requirement, Nim devel no longer required.

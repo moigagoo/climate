@@ -5,9 +5,9 @@ import commands/flow/release
 
 
 const commands = {
+  "add": root.add,
   "flow init": flow.init,
-  "flow release start": release.start,
-  "flow release finish": release.finish
+  "flow release start": release.start
 }
 
 

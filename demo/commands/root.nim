@@ -1,12 +1,27 @@
-import climate/context
+import std/with
+
+import climate/[context, sugar]
 
 
 proc root*(context: Context): int =
-  echo "Welcome to Sauer!"
+  echo "Welcome to FakeGit!"
 
-  if context.cmdOptions.hasKey("v") or context.cmdOptions.hasKey("version"):
-    echo "Version 1.0.0"
+  with context:
+    opt "version", "":
+      echo "Version 1.0.0"
 
-  if context.cmdOptions.hasKey("h") or context.cmdOptions.hasKey("help"):
-    echo "Usage: ..."
+    opt "help", "h":
+      echo "Usage: ..."
+
+proc add*(context: Context): int =
+  with context:
+    args: 
+      for filename in args:
+        echo "Adding " & filename
+    do:
+      echo "No filename provided"
+      return 1
+  
+    opt "tag", "T":
+      echo "Tag: " & val
 
