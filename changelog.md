@@ -8,7 +8,7 @@
 -   [d]—docs improvement
 
 
-## 1.0.3 (WIP)
+## 1.0.3 (April 3, 2023)
 
 -   [+] Add sugar to work with arguments and options to `climate/sugar`.
 
