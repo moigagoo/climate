@@ -2,7 +2,7 @@
 
 **Climate** is a library to create CLIs. It's your CLI mate. Got it?
 
-Climate won't (yet) do too much fancy stuff for you now, like generating help messages or checking incoming arguments.
+Climate won't (yet) do too much fancy stuff for you, like generating help messages or checking incoming arguments.
 
 On the other hand, it allows you to think in high-level abstractions like commands and subcommands instead of parsers and tokens. That's a lot already, I'm telling you.
 
