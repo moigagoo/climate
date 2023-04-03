@@ -1,22 +1,13 @@
 import std/strformat
 
-import climate/context
+import climate/[context, sugar]
 
 
 proc start*(context: Context): int =
-  if len(context.cmdArguments) == 0:
+  context.arg:
+    stdout.write fmt"Starting release {arg}..."
+    echo "done!"
+  do:
     echo "Release name is mandatory"
     return 1
-
-  stdout.write fmt"Starting release {context.cmdArguments[0]}..."
-  echo "done!"
-
-
-proc finish*(context: Context): int =
-  if len(context.cmdArguments) == 0:
-    echo "Release name is mandatory"
-    return 1
-
-  stdout.write fmt"Finishing release {context.cmdArguments[0]}..."
-  echo "done!"
 

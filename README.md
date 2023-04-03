@@ -74,3 +74,43 @@ quit parseCommands(commands)
 
 See the full example in ``demo`` folder.
 
+
+## Sugar
+
+To make it easier to work with arguments and options, Climate offers `arg`, `args`, and `opt` templates in `climate/sugar` module.
+
+`arg` checks that the command has been invoked with exactly one argument and captures its value; if the command was invoked with zero or more than one arguments, the fallback code is executed:
+
+```
+proc start*(context: Context): int =
+  context.arg:
+    stdout.write fmt"Starting release {arg}..."
+    echo "done!"
+  do:
+    echo "Release name is mandatory"
+    return 1
+```
+
+`args` checks that the command has been invoked with at least one argument and captures the values of the passed arguments; if the command was invoked with no arguments, the fallback code is executed:
+
+```
+proc add*(context: Context): int =
+  context.args:
+    for filename in args:
+      echo "Adding " & filename
+  do:
+    echo "No filename provided"
+    return 1
+```
+
+`opt` checks if the command has been invoked with a certain option defined by its short and long names and captures its value:
+
+```
+proc root*(context: Context): int =
+  context.opt "version", "":
+    echo "Version 1.0.0"
+
+  context.opt "help", "h":
+    echo "Usage: ..."
+```
+
