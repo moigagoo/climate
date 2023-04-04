@@ -32,7 +32,7 @@ Handler is the proc that is invoked when the command is called. It accepts a ``C
 
 **Context** is an object that holds the values for the arguments and options from the command line stored as a ``cmdArguments`` sequence and ``cmdOptions`` table.
 
-Command definition my look something like this:
+Command definition may look something like this:
 
 ```nim
 # git.nim
@@ -114,3 +114,19 @@ proc root*(context: Context): int =
     echo "Usage: ..."
 ```
 
+
+## Supersugar
+
+You can make it even sweeter, combine `std/with` with `climate/sugar`:
+
+```
+proc root*(context: Context): int =
+  echo "Welcome to FakeGit!"
+
+  with context:
+    opt "version", "":
+      echo "Version 1.0.0"
+
+    opt "help", "h":
+      echo "Usage: ..."
+```
