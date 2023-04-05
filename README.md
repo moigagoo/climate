@@ -119,7 +119,7 @@ proc root*(context: Context): int =
 
 You can make it even sweeter, combine `std/with` with `climate/sugar`:
 
-```
+```nim
 proc root*(context: Context): int =
   echo "Welcome to FakeGit!"
 
