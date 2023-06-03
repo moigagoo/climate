@@ -26,9 +26,9 @@ requires "climate >= 1.0.0"
 
 **Command** is defined by a **route** and a **handler**.
 
-Route is how you call your command. For example, ``flow release start`` is a route.
+Route is how you call your command. For example, in git flow, ``flow release start`` is a route.
 
-Handler is the proc that is invoked when the command is called. It accepts a ``Context`` object and returns an ``int``.
+Handler is a proc invoked when the command is called. It accepts a ``Context`` object and returns an ``int``.
 
 **Context** is an object that holds the values for the arguments and options from the command line stored as a ``cmdArguments`` sequence and ``cmdOptions`` table.
 
@@ -77,7 +77,7 @@ See the full example in ``demo`` folder.
 
 ## Sugar
 
-To make it easier to work with arguments and options, Climate offers `arg`, `args`, and `opt` templates in `climate/sugar` module.
+To make it easier to work with arguments and options, Climate offers `arg(Context)`, `args(Context)`, and `opt(Context)` templates in `climate/sugar` module.
 
 `arg` checks that the command has been invoked with exactly one argument and captures its value; if the command was invoked with zero or more than one arguments, the fallback code is executed:
 
