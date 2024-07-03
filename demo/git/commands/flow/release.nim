@@ -1,6 +1,6 @@
 import std/strformat
 
-import climate/[context, sugar]
+import climate
 
 
 proc start*(context: Context): int =
