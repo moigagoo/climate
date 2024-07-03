@@ -35,7 +35,7 @@ Context has a ``cmdArguments`` sequence and ``cmdOptions`` table.
 
 ## Example
 
-Here's a fake git flow implemented with Climate:
+Here's a fake git implemented with Climate:
 
 1. Define routes:
 ```nim
@@ -134,3 +134,4 @@ proc root*(context: Context): int =
     opt "help", "h":
       echo "Usage: ..."
 ```
+
