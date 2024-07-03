@@ -1,10 +1,8 @@
 # Climate
 
-**Climate** is a library to create CLIs. It's your CLI mate. Got it?
+**Climate** is a library to create CLIs. It's your CLI mate 😜
 
-Climate won't (yet) do too much fancy stuff for you, like generating help messages or checking incoming arguments.
-
-On the other hand, it allows you to think in high-level abstractions like commands and subcommands instead of parsers and tokens. That's a lot already, I'm telling you.
+It allows you to think in high-level abstractions like commands and subcommands instead of parsers and tokens.
 
 
 # Installation
@@ -24,16 +22,22 @@ requires "climate >= 1.0.0"
 
 # Usage
 
-**Command** is defined by a **route** and a **handler**.
+Defining CLIs with Climate is easy. There are just three terms you need to know: route, handler, and context.
 
-Route is how you call your command. For example, in git flow, ``flow release start`` is a route.
+**Route** is a unique sequence of words that correspond to a CLI command. For example, in git-flow, ``flow release start`` is a route.
 
-Handler is a proc invoked when the command is called. It accepts a ``Context`` object and returns an ``int``.
+**Handler** is a Nim proc invoked when the command is called by the user. It accepts a ``Context`` object and returns an ``int``.
 
-**Context** is an object that holds the values for the arguments and options from the command line stored as a ``cmdArguments`` sequence and ``cmdOptions`` table.
+**Context** is an object that holds the values for the arguments and options from the command line.
 
-Command definition may look something like this:
+Context has a ``cmdArguments`` sequence and ``cmdOptions`` table.
 
+
+## Example
+
+Here's a fake git flow implemented with Climate:
+
+1. Define routes:
 ```nim
 # git.nim
 import climate
@@ -49,7 +53,7 @@ const commands = {
 }
 ```
 
-Then define your handlers:
+2. Define handlers:
 
 ```nim
 # commands/flow.nim
@@ -65,21 +69,21 @@ proc init*(context: Context): int =
   echo "done!"
 ```
 
-Finally, run the app by calling ``parseCommands`` with your commands:
+3. Parse the command line by calling ``parseCommands``:
 
 ```nim
 # git.nim
 quit parseCommands(commands)
 ```
 
-See the full example in ``demo`` folder.
+See the complete example in ``demo`` folder.
 
 
 ## Sugar
 
 To make it easier to work with arguments and options, Climate offers `arg(Context)`, `args(Context)`, and `opt(Context)` templates in `climate/sugar` module.
 
-`arg` checks that the command has been invoked with exactly one argument and captures its value; if the command was invoked with zero or more than one arguments, the fallback code is executed:
+- `arg` checks that the command has been invoked with exactly one argument and captures its value; if the command was invoked with zero or more than one arguments, the fallback code is executed:
 
 ```nim
 proc start*(context: Context): int =
@@ -91,7 +95,7 @@ proc start*(context: Context): int =
     return 1
 ```
 
-`args` checks that the command has been invoked with at least one argument and captures the values of the passed arguments; if the command was invoked with no arguments, the fallback code is executed:
+- `args` checks that the command has been invoked with at least one argument and captures the values of the passed arguments; if the command was invoked with no arguments, the fallback code is executed:
 
 ```nim
 proc add*(context: Context): int =
@@ -103,7 +107,7 @@ proc add*(context: Context): int =
     return 1
 ```
 
-`opt` checks if the command has been invoked with a certain option defined by its short and long names and captures its value:
+- `opt` checks if the command has been invoked with a certain option defined by its short and long names and captures its value:
 
 ```nim
 proc root*(context: Context): int =
