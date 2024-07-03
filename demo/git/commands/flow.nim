@@ -1,4 +1,4 @@
-import climate/context
+import climate
 
 
 proc init*(context: Context): int =

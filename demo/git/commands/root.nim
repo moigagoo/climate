@@ -1,10 +1,13 @@
 import std/with
 
-import climate/[context, sugar]
+import climate
 
 
 proc root*(context: Context): int =
   echo "Welcome to FakeGit!"
+
+  if len(context.cmdArguments) == 0 and len(context.cmdOptions) == 0:
+    quit "Invalid command. Run 'git --help' to see the available commands."
 
   with context:
     opt "version", "":

@@ -1,4 +1,7 @@
-import context
+import types
+
+
+export types
 
 
 template opt*(context: Context, longName, shortName: string, body: untyped): untyped =
