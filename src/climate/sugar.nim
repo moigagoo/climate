@@ -7,7 +7,7 @@ export types
 template opt*(context: Context, longName, shortName: string, body: untyped): untyped =
   for nameVariant in  [longName, shortName]:
     if context.cmdOptions.hasKey(nameVariant):
-      let val {.inject.} = context.cmdOptions[nameVariant]
+      let val {.inject, used.} = context.cmdOptions[nameVariant]
       body
       break
 

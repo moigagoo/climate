@@ -46,7 +46,7 @@ proc rootCommand(context: Context): int =
 
   with context:
     opt "help", "h":
-      echo "This is help string."
+      echo "This is a help string."
 
     opt "version", "v":
       echo "Battleship v.0.1.0"
