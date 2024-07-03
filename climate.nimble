@@ -1,8 +1,8 @@
 # Package
 
-version       = "1.0.3"
+version       = "1.1.0"
 author        = "Constantine Molchanov"
-description   = "Library to build command-line interfaces."
+description   = "Library for building command-line interfaces."
 license       = "MIT"
 srcDir        = "src"
 
