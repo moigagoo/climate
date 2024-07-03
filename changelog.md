@@ -8,6 +8,12 @@
 -   [d]—docs improvement
 
 
+## 1.1.0 (July 3, 2024)
+
+-   [!][r] Importing `climate` now imports all submodules including `sugar` and `context`. Just add `import climate` and that's it.
+-   [+] Add new demo, Battleship.
+
+
 ## 1.0.3 (April 3, 2023)
 
 -   [+] Add sugar to work with arguments and options to `climate/sugar`.
