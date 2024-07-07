@@ -16,7 +16,7 @@ $ nimble install -y climate
 or add it to your .nimble file:
 
 ```nim
-requires "climate >= 1.0.0"
+requires "climate"
 ```
 
 
