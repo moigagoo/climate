@@ -8,6 +8,14 @@
 -   [d]—docs improvement
 
 
+## 1.1.2 (December 4, 2024)
+
+-   [+] Add `arg` and `args` variants that don't require a fallback block.
+-   [f] In `arg` and `args`, the main block would get executed after the fallback block. Now, it's either this or that.
+-   [r] `missing` argument renamed to `fallback` to avoid collision with Nim's error message.
+-   [t] Added commands to git demo app to demonstrate fallback-less `arg` and `args` templates.
+
+
 ## 1.1.1 (July 3, 2024)
 
 -   [f] Fix warning about unused `val` in `sugar` submodule.

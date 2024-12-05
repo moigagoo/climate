@@ -28,3 +28,11 @@ proc add*(context: Context): int =
     opt "tag", "T":
       echo "Tag: " & val
 
+proc reset*(context: Context): int =
+  with context:
+    args: 
+      for filename in args:
+        echo "Resetting " & filename
+
+  echo "Reset finished"
+
