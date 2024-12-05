@@ -11,19 +11,29 @@ template opt*(context: Context, longName, shortName: string, body: untyped): unt
       body
       break
 
-template arg*(context: Context, body, missing: untyped): untyped =
+template arg*(context: Context, body, fallback: untyped): untyped =
   if len(context.cmdArguments) == 0:
-    missing
+    fallback
 
-  let arg {.inject.} = context.cmdArguments[0]
+  else:
+    let arg {.inject.} = context.cmdArguments[0]
+    body
 
-  body
+template arg*(context: Context, body: untyped): untyped =
+  if len(context.cmdArguments) > 0:
+    let arg {.inject.} = context.cmdArguments[0]
+    body
 
-template args*(context: Context, body, missing: untyped): untyped =
+template args*(context: Context, body, fallback: untyped): untyped =
   if len(context.cmdArguments) == 0:
-    missing
+    fallback
 
-  let args {.inject.} = context.cmdArguments
+  else:
+    let args {.inject.} = context.cmdArguments
+    body
 
-  body
+template args*(context: Context, body): untyped =
+  if len(context.cmdArguments) > 0:
+    let args {.inject.} = context.cmdArguments
+    body
 
