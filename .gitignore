@@ -15,6 +15,8 @@ testresults/
 outputExpected.txt
 outputGotten.txt
 
+demo/git/git
+
 tests/megatest.nim
 tests/megatest
 
