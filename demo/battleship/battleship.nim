@@ -12,7 +12,7 @@ proc createShip(context: Context): int =
       shipName = val
 
   echo fmt"Creating ship {shipName}."
-        
+
 proc moveShip(context: Context): int =
   var
     x = -1

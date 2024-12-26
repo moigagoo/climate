@@ -22,18 +22,27 @@ requires "climate"
 
 # Usage
 
-Defining CLIs with Climate is easy. There are just three terms you need to know: route, handler, and context.
+To create CLIs with Climate, you need to learn only three terms: **route**, **handler**, and **context**.
+
+
+## Route
 
 **Route** is a unique sequence of words that correspond to a CLI command. For example, in git-flow, ``flow release start`` is a route.
 
+
+## Handler
+
 **Handler** is a Nim proc invoked when the command is called by the user. It accepts a ``Context`` object and returns an ``int``.
+
+
+## Context
 
 **Context** is an object that holds the values for the arguments and options from the command line.
 
 Context has a ``cmdArguments`` sequence and ``cmdOptions`` table.
 
 
-## Example
+# Example
 
 Here's a fake git implemented with Climate:
 
@@ -79,11 +88,14 @@ quit parseCommands(commands)
 See the complete example in ``demo`` folder.
 
 
-## Sugar
+# Sugar
 
 To make it easier to work with arguments and options, Climate offers `arg(Context)`, `args(Context)`, and `opt(Context)` templates in `climate/sugar` module.
 
-- `arg` checks that the command has been invoked with exactly one argument and captures its value; if the command was invoked with zero or more than one arguments, the fallback code is executed:
+
+## `arg`
+
+`arg` checks that the command has been invoked with exactly one argument and captures its value; if the command was invoked with zero or more than one arguments, the fallback code is executed:
 
 ```nim
 proc start*(context: Context): int =
@@ -95,7 +107,10 @@ proc start*(context: Context): int =
     return 1
 ```
 
-- `args` checks that the command has been invoked with at least one argument and captures the values of the passed arguments; if the command was invoked with no arguments, the fallback code is executed:
+
+## `args`
+
+`args` checks that the command has been invoked with at least one argument and captures the values of the passed arguments; if the command was invoked with no arguments, the fallback code is executed:
 
 ```nim
 proc add*(context: Context): int =
@@ -107,7 +122,10 @@ proc add*(context: Context): int =
     return 1
 ```
 
-- `opt` checks if the command has been invoked with a certain option defined by its short and long names and captures its value:
+
+## `opt`
+
+`opt` checks if the command has been invoked with a certain option defined by its short and long names and captures its value:
 
 ```nim
 proc root*(context: Context): int =
@@ -121,7 +139,7 @@ proc root*(context: Context): int =
 
 ## Supersugar
 
-To make it even sweeter, combine `std/with` with `climate/sugar`:
+To make it even sweeter, use `std/with`:
 
 ```nim
 proc root*(context: Context): int =
