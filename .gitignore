@@ -16,6 +16,7 @@ outputExpected.txt
 outputGotten.txt
 
 demo/git/git
+demo/battleship/battleship
 
 tests/megatest.nim
 tests/megatest
