@@ -4,6 +4,31 @@ import types
 export types
 
 
+template flag*(context: Context, longName, shortName: string, body, fallback: untyped): untyped =
+  block findFlag:
+    for nameVariant in  [longName, shortName]:
+      if nameVariant in context.cmdFlags:
+        body
+        break findFlag
+
+    fallback
+
+template flag*(context: Context, longName, shortName: string, body: untyped): untyped =
+  for nameVariant in  [longName, shortName]:
+    if nameVariant in context.cmdFlags:
+      body
+      break
+
+template opt*(context: Context, longName, shortName: string, body, fallback: untyped): untyped =
+  block findOpt:
+    for nameVariant in  [longName, shortName]:
+      if context.cmdOptions.hasKey(nameVariant):
+        let val {.inject, used.} = context.cmdOptions[nameVariant]
+        body
+        break findOpt
+
+    fallback
+
 template opt*(context: Context, longName, shortName: string, body: untyped): untyped =
   for nameVariant in  [longName, shortName]:
     if context.cmdOptions.hasKey(nameVariant):

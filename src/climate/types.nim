@@ -10,4 +10,5 @@ type
   Context* = object of RootObj
     cmdArguments*: seq[string]
     cmdOptions*: Table[string, string]
+    cmdFlags*: seq[string]
 

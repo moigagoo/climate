@@ -27,6 +27,8 @@ proc parseCommands*(commands: openArray[Command], defaultHandler: Handler = nil)
         route = cmdComponents.join(" ")
       of cmdShortOption, cmdLongOption:
         context.cmdOptions[key] = val
+        if len(val) == 0:
+          context.cmdFlags.add(key)
       of cmdEnd:
         break
 
@@ -45,8 +47,10 @@ proc parseCommands*(commands: openArray[Command], defaultHandler: Handler = nil)
         context.cmdArguments.add(key)
       of cmdShortOption, cmdLongOption:
         context.cmdOptions[key] = val
+        if len(val) == 0:
+          context.cmdFlags.add(key)
       of cmdEnd:
-        break 
+        break
 
   handler(context) 
 
