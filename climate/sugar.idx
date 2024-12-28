@@ -1,0 +1,13 @@
+nimTitle	sugar	climate/sugar.html	module src/climate/sugar		0
+nim	flag	climate/sugar.html#flag.t,Context,string,string,untyped,untyped	template flag(context: Context; longName, shortName: string; body, fallback: untyped): untyped		7
+nim	flag	climate/sugar.html#flag.t,Context,string,string,untyped	template flag(context: Context; longName, shortName: string; body: untyped): untyped		22
+nim	opt	climate/sugar.html#opt.t,Context,string,string,untyped,untyped	template opt(context: Context; longName, shortName: string; body, fallback: untyped): untyped		33
+nim	opt	climate/sugar.html#opt.t,Context,string,string,untyped	template opt(context: Context; longName, shortName: string; body: untyped): untyped		48
+nim	arg	climate/sugar.html#arg.t,Context,untyped,untyped	template arg(context: Context; body, fallback: untyped): untyped		60
+nim	arg	climate/sugar.html#arg.t,Context,untyped	template arg(context: Context; body: untyped): untyped		73
+nim	args	climate/sugar.html#args.t,Context,untyped,untyped	template args(context: Context; body, fallback: untyped): untyped		83
+nim	args	climate/sugar.html#args.t,Context,	template args(context: Context; body): untyped		96
+nimgrp	args	climate/sugar.html#args-templates-all	template		83
+nimgrp	flag	climate/sugar.html#flag-templates-all	template		7
+nimgrp	arg	climate/sugar.html#arg-templates-all	template		60
+nimgrp	opt	climate/sugar.html#opt-templates-all	template		33

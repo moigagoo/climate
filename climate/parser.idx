@@ -1,0 +1,2 @@
+nimTitle	parser	climate/parser.html	module src/climate/parser		0
+nim	parseCommands	climate/parser.html#parseCommands,openArray[Command],Handler	proc parseCommands(commands: openArray[Command]; defaultHandler: Handler = nil): int		9

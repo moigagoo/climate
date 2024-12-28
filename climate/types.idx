@@ -1,0 +1,4 @@
+nimTitle	types	climate/types.html	module src/climate/types		0
+nim	Handler	climate/types.html#Handler	type Handler		8
+nim	Command	climate/types.html#Command	tuple Command		9
+nim	Context	climate/types.html#Context	object Context		10
