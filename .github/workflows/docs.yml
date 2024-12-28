@@ -1,0 +1,26 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  Docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jiro4989/setup-nim-action@v2
+        with:
+          nim-version: '2.2.0'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docs
+        run: nimble docs
+
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+
