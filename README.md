@@ -125,7 +125,7 @@ proc add*(context: Context): int =
 
 ## `opt`
 
-`opt` checks if the command has been invoked with a certain option defined by its short and long names and captures its value:
+`opt` checks if the command has been invoked with a certain option defined by its short or long name and captures its value:
 
 ```nim
 proc root*(context: Context): int =
@@ -135,6 +135,21 @@ proc root*(context: Context): int =
   context.opt "help", "h":
     echo "Usage: ..."
 ```
+
+
+## `flag`
+
+`flag` checks if the command has been invoked with a certain flag, i.e. an option without a value, defined by its short or long name:
+
+```nim
+proc root*(context: Context): int =
+  context.opt "version", "":
+    echo "Version 1.0.0"
+
+  context.opt "help", "h":
+    echo "Usage: ..."
+```
+
 
 
 ## Supersugar
