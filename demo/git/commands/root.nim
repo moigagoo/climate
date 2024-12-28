@@ -10,10 +10,10 @@ proc root*(context: Context): int =
     quit "Invalid command. Run 'git --help' to see the available commands."
 
   with context:
-    opt "version", "":
+    flag "version", "":
       echo "Version 1.0.0"
 
-    opt "help", "h":
+    flag "help", "h":
       echo "Usage: ..."
 
 proc add*(context: Context): int =
@@ -22,11 +22,12 @@ proc add*(context: Context): int =
       for filename in args:
         echo "Adding " & filename
     do:
-      echo "No filename provided"
-      return 1
+      quit("No filename provided", 1)
   
     opt "tag", "T":
       echo "Tag: " & val
+    do:
+      quit("Tag is mandatory", 1)
 
 proc reset*(context: Context): int =
   with context:
