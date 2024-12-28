@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.1.2"
+version       = "1.1.3"
 author        = "Constantine Molchanov"
 description   = "Library for building command-line interfaces."
 license       = "MIT"
