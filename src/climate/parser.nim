@@ -8,7 +8,7 @@ export types
 
 proc parseCommands*(commands: openArray[Command], defaultHandler: Handler = nil): int =
   ##[ Parse command-line params, store the arguments and options in context, and invoke the matching handler.
-  
+
   Returns the exit code that should be returned by your app to the caller.
   ]##
 
@@ -52,5 +52,5 @@ proc parseCommands*(commands: openArray[Command], defaultHandler: Handler = nil)
       of cmdEnd:
         break
 
-  handler(context) 
+  handler(context)
 
