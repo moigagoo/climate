@@ -4,6 +4,8 @@
 
 It allows you to think in high-level abstractions like commands and subcommands instead of parsers and tokens.
 
+[API docs index →](https://moigagoo.github.io/climate/theindex.html)
+
 
 # Installation
 
