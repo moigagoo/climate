@@ -34,23 +34,29 @@ proc turnShip(context: Context): int =
   with context:
     opt "angle", "a":
       angle = parseInt(val)
-    opt "counterclockwise", "c":
+    do:
+      quit("Angle is mandatory", 1)
+
+    flag "counterclockwise", "c":
       counterClockWise = true
+    do:
+      echo "DEBUG: counterClockWise = false"
+      counterClockWise = false
 
   echo fmt"Turning ship: angle = {angle}, counterclockwise = {counterClockWise}."
 
 proc rootCommand(context: Context): int =
-  if len(context.cmdArguments) == 0 and len(context.cmdOptions) == 0:
-    echo "Invalid command. Run 'battleship --help' to see available commands."
-    return 1
-
   with context:
-    opt "help", "h":
+    flag "help", "h":
       echo "This is a help string."
+      return 0
 
-    opt "version", "v":
+    flag "version", "v":
       echo "Battleship v.0.1.0"
+      return 0
 
+  echo "Invalid command. Run 'battleship --help' to see available commands."
+  return 1
 
 const commands = {
   "new": createShip,
