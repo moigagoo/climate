@@ -8,6 +8,13 @@
 -   [d]—docs improvement
 
 
+## 1.1.3 (December 28, 2024)
+
+-   [+] Add `flag` sugar to capture flags (i.e. options without values).
+-   [+] Add `opt` and `flag` variants with a fallback block.
+-   [d] Add docsrtings to the sugar templates.
+
+
 ## 1.1.2 (December 4, 2024)
 
 -   [+] Add `arg` and `args` variants that don't require a fallback block.
