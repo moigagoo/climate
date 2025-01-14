@@ -10,6 +10,8 @@ proc createShip(context: Context): int =
   with context:
     opt "name", "n":
       shipName = val
+    do:
+      echo "HINT: to specify the ship name, use `--name|-n=<STRING>` option."
 
   echo fmt"Creating ship {shipName}."
 
@@ -21,8 +23,13 @@ proc moveShip(context: Context): int =
   with context:
     opt "", "x":
       x = parseInt(val)
+    do:
+      echo "HINT: to specify the x coordinate, use `-x=<NUMBER>` option."
+
     opt "", "y":
       y = parseInt(val)
+    do:
+      echo "HINT: to specify the y coordinate, use `-y=<NUMBER>` option."
 
   echo fmt"Moving ship: x = {x}, y = {y}."
 
@@ -35,12 +42,12 @@ proc turnShip(context: Context): int =
     opt "angle", "a":
       angle = parseInt(val)
     do:
-      quit("Angle is mandatory", 1)
+      quit("Angle is mandatory: --angle|-a=<NUMBER>", 1)
 
     flag "counterclockwise", "c":
       counterClockWise = true
     do:
-      echo "DEBUG: counterClockWise = false"
+      echo "HINT: to turn the ship counterclockwise, pass `--counterclockwise|-c` flag."
       counterClockWise = false
 
   echo fmt"Turning ship: angle = {angle}, counterclockwise = {counterClockWise}."
@@ -48,7 +55,7 @@ proc turnShip(context: Context): int =
 proc rootCommand(context: Context): int =
   with context:
     flag "help", "h":
-      echo "This is a help string."
+      echo "Available commands: new, ship move, ship turn."
       return 0
 
     flag "version", "v":
