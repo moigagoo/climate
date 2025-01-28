@@ -21,5 +21,6 @@ demo/battleship/battleship
 tests/megatest.nim
 tests/megatest
 
-tests/tutils
+tests/basicmath
+tests/tbasicmath
 
