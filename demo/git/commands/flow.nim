@@ -1,6 +1,5 @@
 import climate
 
-
 proc init*(context: Context): int =
   stdout.write "Initializing Git flow..."
 
@@ -8,4 +7,3 @@ proc init*(context: Context): int =
     stdout.write "using default settings..."
 
   echo "done!"
-

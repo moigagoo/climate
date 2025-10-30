@@ -2,7 +2,6 @@ import std/with
 
 import climate
 
-
 proc root*(context: Context): int =
   echo "Welcome to FakeGit!"
 
@@ -18,12 +17,12 @@ proc root*(context: Context): int =
 
 proc add*(context: Context): int =
   with context:
-    args: 
+    args:
       for filename in args:
         echo "Adding " & filename
     do:
       quit("No filename provided", 1)
-  
+
     opt "tag", "T":
       echo "Tag: " & val
     do:
@@ -31,9 +30,8 @@ proc add*(context: Context): int =
 
 proc reset*(context: Context): int =
   with context:
-    args: 
+    args:
       for filename in args:
         echo "Resetting " & filename
 
   echo "Reset finished"
-

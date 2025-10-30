@@ -1,6 +1,5 @@
 import std/[unittest, os, osproc, strutils, strformat]
 
-
 const clifile = "tests" / "basicmath"
 
 suite "Basic CLI":
@@ -45,8 +44,7 @@ suite "Basic CLI":
     check parseInt(strip(output)) == a + b + c
 
   test "Multiple arguments expected, one given":
-    const
-      a = 2
+    const a = 2
 
     let (output, code) = execCmdEx &"{findExe(clifile)} multisum {a}"
 
@@ -64,4 +62,3 @@ suite "Basic CLI":
 
     check code == 0
     check (strip(output)) == "Available commands: sum."
-

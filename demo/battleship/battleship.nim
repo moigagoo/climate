@@ -2,10 +2,8 @@ import std/[strutils, strformat, with]
 
 import climate
 
-
 proc createShip(context: Context): int =
-  var
-    shipName = "Boaty McBoatFace"
+  var shipName = "Boaty McBoatFace"
 
   with context:
     opt "name", "n":
@@ -65,13 +63,7 @@ proc rootCommand(context: Context): int =
   echo "Invalid command. Run 'battleship --help' to see available commands."
   return 1
 
-const commands = {
-  "new": createShip,
-  "ship move": moveShip,
-  "ship turn": turnShip,
-}
-
+const commands = {"new": createShip, "ship move": moveShip, "ship turn": turnShip}
 
 when isMainModule:
   quit parseCommands(commands, defaultHandler = rootCommand)
-
