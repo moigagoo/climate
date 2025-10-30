@@ -2,9 +2,7 @@ import std/[parseopt, strutils]
 
 import types
 
-
 export types
-
 
 proc parseCommands*(commands: openArray[Command], defaultHandler: Handler = nil): int =
   ##[ Parse command-line params, store the arguments and options in context, and invoke the matching handler.
@@ -53,4 +51,3 @@ proc parseCommands*(commands: openArray[Command], defaultHandler: Handler = nil)
         break
 
   handler(context)
-

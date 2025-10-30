@@ -1,8 +1,6 @@
 import std/tables
 
-
 export tables
-
 
 type
   Handler* = proc(context: Context): int {.nimcall.}
@@ -11,4 +9,3 @@ type
     cmdArguments*: seq[string]
     cmdOptions*: Table[string, string]
     cmdFlags*: seq[string]
-
